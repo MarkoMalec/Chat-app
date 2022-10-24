@@ -1,0 +1,28 @@
+section.messages_area {
+    grid-area: messages;
+    position: relative;
+    height: 100%;
+    padding: 1rem;
+    overflow: scroll;
+    background-image: url('../../../assets/background-dark.png');
+    background-repeat: repeat;
+    background-size: contain;
+    background-color: #0B141A;
+
+    li {
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    // ::before {
+    //     content: '';
+    //     display: block;
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     top: 0;
+    //     left: 0;
+    //     background-color: rgba($color: #0B141A, $alpha: .6);
+    // }
+}

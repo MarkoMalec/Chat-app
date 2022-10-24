@@ -1,0 +1,18 @@
+.sidebar {
+    grid-area: sidebar;
+    background-color: #111B21;
+    border-right: 1px solid #262E33;
+
+    ul {
+        padding-left: 0;
+        list-style-type: none;
+        
+        li {
+            color: #fff;
+            padding: 1.5rem;
+            border-bottom: 1px solid #262E33;
+            width: 80%;
+            margin-inline: auto;
+        }
+    }
+}

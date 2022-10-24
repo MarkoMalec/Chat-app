@@ -1,0 +1,42 @@
+section.input_container {
+    grid-area: input;
+    align-self: end;
+    width: 100%;
+    padding: 8px 0;
+    justify-self: center;
+    background: #202C33;
+    z-index: 10;
+
+    form {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    form input {
+        width: 93%;
+        border-radius: 100px;
+        border: none;
+        background: #2A3942;
+        height: 30px;
+        padding-left: 15px;
+        color: #fff;
+        &:focus-visible {
+            outline: 1px solid #25d365a1;
+        }
+    }
+
+    form button {
+        background: #25D366;
+        border: none;
+        border-radius: 100px;
+        width: 32px;
+        height: 32px;
+    }
+
+    form .send-icon {
+        color: #fff;
+        width: 15px;
+        height: 23px;
+    }
+}
