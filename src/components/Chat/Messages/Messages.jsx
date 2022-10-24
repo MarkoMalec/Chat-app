@@ -5,16 +5,17 @@ import './Messages.scss';
 
 const Messages = () => {
 
+
   const { messageArray } = useContext(ChatContext);
   const { user } = useContext(UserContext);
-
+  console.log(user);
   return(
     <section className="messages_area">
       <ul>
         {messageArray.map((m) => {
           return(
             <li>
-              <p>{user.username}</p>
+              <p>{m.user.username}</p>
               {m.message}
             </li>
           )
