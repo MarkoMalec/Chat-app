@@ -26,7 +26,6 @@ const Messages = () => {
     <section className="messages_area">
       <ul>
         {messageArray.map((m, id) => {
-          console.log(m);
           if (m.type === "MEMBER_JOINED") {
             return (
               <li key={m.id} className="member_joined_left">

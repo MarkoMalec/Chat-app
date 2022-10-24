@@ -18,7 +18,6 @@ const ChatApp = () => {
         setDrone(drone);
         setUser({ id: drone.clientId, username });
       });
-      console.log(drone);
     }
   };
 
