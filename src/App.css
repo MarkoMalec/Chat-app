@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 110px 1fr 55px;
+  grid-template-rows: 110px 1fr 40px;
   grid-template-areas:
     "header header"
     "sidebar messages"

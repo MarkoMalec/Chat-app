@@ -1,10 +1,19 @@
 header {
     grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: #128C7E;
     height: fit-content;
     width: 100%;
 
     .brand img {
         width: 150px;
+    }
+
+    .personal_user_container {
+        padding-right: 5rem;
+        font-size: 1.3em;
+        color: #fff;
     }
 }
