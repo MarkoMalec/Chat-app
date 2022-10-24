@@ -30,7 +30,7 @@ const Login = () => {
             maxLength="12"
             onChange={(e) => setUsername(e.target.value)}
           />
-          <button type="submit">Enter Chat!</button>
+          <button type="submit" disabled={true}>Enter Chat!</button>
           <div className="form-error">{error}</div>
         </form>
       </div>
