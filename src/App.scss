@@ -7,4 +7,8 @@
     "header header"
     "sidebar messages"
     "sidebar input";
+
+  @media (max-width: 768px) {
+    grid-template-columns: 0 100%;
+  }
 }

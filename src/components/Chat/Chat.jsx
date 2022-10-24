@@ -10,10 +10,11 @@ import Input from "./Input/Input";
 const MAIN_ROOM_NAME = "observable-main-room";
 
 const Chat = () => {
-    const { user, drone } = useContext(UserContext);
-    
-    const [messageArray, setMessageArray] = useState([]);
-    const [membersArray, setMembersArray] = useState([]);
+  const { user, drone } = useContext(UserContext);
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [messageArray, setMessageArray] = useState([]);
+  const [membersArray, setMembersArray] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -105,20 +106,20 @@ const Chat = () => {
 
   return (
     <>
-    <ChatContext.Provider
-      value={{
-        sendMessage,
-        // onClickLogout,
-        messageArray,
-        membersArray,
-        user,
-      }}
-    >
-      <Header />
-      <Sidebar />
-      <Messages />
-      <Input />
-    </ChatContext.Provider>
+      <ChatContext.Provider
+        value={{
+          sendMessage,
+          // onClickLogout,
+          messageArray,
+          membersArray,
+          user,
+        }}
+      >
+        <Header setSidebarStatus={setIsSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} />
+        <Messages />
+        <Input />
+      </ChatContext.Provider>
     </>
   );
 };
