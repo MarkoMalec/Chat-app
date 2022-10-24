@@ -5,7 +5,6 @@ import Header from "../elements/header/Header";
 import Sidebar from "../elements/sidebar/Sidebar";
 import Messages from "./Messages/Messages";
 import Input from "./Input/Input";
-// import "./Chat.css";
 
 const MAIN_ROOM_NAME = "observable-main-room";
 
@@ -93,23 +92,18 @@ const Chat = () => {
     });
   }
 
-  function sendMessage(message) {
+  const sendMessage = (message) => {
     drone.publish({
       room: MAIN_ROOM_NAME,
       message: { message },
     });
   }
 
-  //   function onClickLogout() {
-  //     userLogout();
-  //   }
-
   return (
     <>
       <ChatContext.Provider
         value={{
           sendMessage,
-          // onClickLogout,
           messageArray,
           membersArray,
           user,
