@@ -8,14 +8,11 @@ const Messages = () => {
   const { user } = useContext(UserContext);
   const scrollRef = useRef();
 
-
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ block: "end", behavior: "smooth" });
     }
   }, [messageArray]);
-
-  console.log(messageArray);
 
   return (
     <section className="messages_area">
