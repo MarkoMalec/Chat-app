@@ -8,19 +8,14 @@ const Messages = () => {
   const { user } = useContext(UserContext);
   const scrollRef = useRef();
 
-  const current = new Date();
-
-  const time = current.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ block: "end", behavior: "smooth" });
     }
   }, [messageArray]);
+
+  console.log(messageArray);
 
   return (
     <section className="messages_area">
@@ -54,7 +49,7 @@ const Messages = () => {
                   m.message
                 )}
                 <span className="chat_buble-username">
-                  {user.id !== m.user.id ? m.user.username : ""} {time}
+                  {user.id !== m.user.id ? m.user.username : ""} {m.time}
                 </span>
               </>
               <div ref={scrollRef}></div>

@@ -75,12 +75,20 @@ const Chat = () => {
 
     room.on("message", (message) => {
       setMessageArray((current) => {
+        const currentTime = new Date();
+
+        const time = currentTime.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        });
         return [
           ...current,
           {
             message: message.data.message,
             id: message.id,
             type: "MESSAGE",
+            time: time,
             user: {
               id: message.member.id,
               username: message.member.clientData.username,
