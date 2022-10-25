@@ -5,6 +5,7 @@ import "./Login.scss";
 
 const Login = () => {
   const [username, setUsername] = useState(null);
+  const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState("");
 
   const { userLogin } = useContext(UserContext);
@@ -16,6 +17,7 @@ const Login = () => {
     } else {
       setError(null);
       userLogin(username);
+      setDisabled(true);
     }
   };
 
@@ -30,8 +32,8 @@ const Login = () => {
             maxLength="12"
             onChange={(e) => setUsername(e.target.value)}
           />
-          <button type="submit">Enter Chat!</button>
-          <div className="form-error">{error}</div>
+          <button type="submit" disabled={disabled}>Enter Chat!</button>
+          <div id="form-error">{error}</div>
         </form>
       </div>
     </div>
