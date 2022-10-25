@@ -16,7 +16,9 @@ const Header = ({ setSidebarStatus }) => {
       <div className="brand">
         <img src={logo} />
       </div>
-      <div className="personal_user_container">{user.username}</div>
+      <div className="personal_user_container">
+        <span>{user.username}</span>
+      </div>
       <div
         className={isActive ? "burger active" : "burger"}
         onClick={() => {

@@ -12,7 +12,7 @@ const Login = () => {
 
   const setName = (e) => {
     e.preventDefault();
-    if (!username) {
+    if (!username|| !username.replace(/\s/g, "").length) {
       setError("No username set");
     } else {
       setError(null);
