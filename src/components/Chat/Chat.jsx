@@ -24,7 +24,9 @@ const Chat = () => {
   function setupRoom(scaledrone) {
     scaledrone.on("error", (error) => console.error(error));
 
-    const room = scaledrone.subscribe(MAIN_ROOM_NAME);
+    const room = scaledrone.subscribe(MAIN_ROOM_NAME, {
+      historyCount: 50
+    });
 
     room.on("error", (error) => console.error(error));
 
@@ -41,7 +43,7 @@ const Chat = () => {
         return [
           ...current,
           {
-            message: "has joined the chat!",
+            message: "has joined the chat! :)",
             id: Math.random(),
             type: "MEMBER_JOINED",
             user: {
@@ -52,6 +54,24 @@ const Chat = () => {
       });
     });
 
+    room.on('history_message', function (message) {
+      setMessageArray((current) => {
+        return [
+          ...current,
+          {
+            message: message.data.message,
+            id: Math.random(),
+            type: "HISTORY_MESSAGE",
+            user: {
+              id: Math.random(),
+              username: 'unknown',
+            },
+          },
+        ];
+      });
+      
+    })
+
     room.on("member_leave", function (member) {
       setMembersArray((current) => {
         return current.filter((oneMember) => oneMember.id !== member.id);
@@ -60,7 +80,7 @@ const Chat = () => {
         return [
           ...current,
           {
-            message: "has left the chat!",
+            message: "has left the chat! :(",
             id: Math.random(),
             type: "MEMBER_LEFT",
             user: {
@@ -80,6 +100,7 @@ const Chat = () => {
           minute: "2-digit",
           hour12: false,
         });
+
         return [
           ...current,
           {
@@ -101,6 +122,13 @@ const Chat = () => {
     drone.publish({
       room: MAIN_ROOM_NAME,
       message: { message },
+    });
+  }
+
+  const sendImage = (message, image) => {
+    drone.publish({
+      room: MAIN_ROOM_NAME,
+      message: { message, image },
     });
   }
 

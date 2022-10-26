@@ -15,8 +15,7 @@ const Input = () => {
         e.preventDefault();
         if (text) {
             sendMessage(text);
-
-        }
+        } 
         setText('');
     }
 
@@ -30,6 +29,7 @@ const Input = () => {
                 autoFocus={true}
                 value={text}
             />
+            {/* <input type="file" accept="image/*" onChange={onImageChange} /> */}
             <button>
                 <FontAwesomeIcon className='send-icon' icon={faPaperPlane} />
             </button>

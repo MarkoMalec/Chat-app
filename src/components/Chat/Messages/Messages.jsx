@@ -4,13 +4,13 @@ import UserContext from "../../context/UserContext";
 import "./Messages.scss";
 
 const Messages = () => {
-  const { messageArray, membersArray } = useContext(ChatContext);
+  const { messageArray } = useContext(ChatContext);
   const { user } = useContext(UserContext);
   const scrollRef = useRef();
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ block: "end", behavior: "smooth" });
+      scrollRef.current.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   }, [messageArray]);
 
@@ -21,29 +21,40 @@ const Messages = () => {
           if (m.type === "MEMBER_JOINED") {
             return (
               <li key={m.id} className="member_joined_left">
-                "{m.user.username}" {m.message} :)
+                "{m.user.username}" {m.message}
               </li>
             );
           }
           if (m.type === "MEMBER_LEFT") {
             return (
               <li key={m.id} className="member_joined_left">
-                "{m.user.username}" {m.message} :(
+                "{m.user.username}" {m.message}
               </li>
             );
           }
+          if (m.type === "HISTORY_MESSAGE") {
+            return (
+              <li key={m.id}>
+                {m.message} 
+                <span className="chat_buble-username">
+                  {m.user.username}
+                </span>
+              </li>
+            )
+          }
           return (
             <li
-              key={m.id}
-              className={
-                user.id === m.user.id ? "message_by_me" : "message_by_other"
-              }
+            key={m.id}
+            className={
+              user.id === m.user.id ? "message_by_me" : "message_by_other"
+            }
             >
               <>
                 {m.message.includes("https") ? (
                   <a href={m.message}>{m.message}</a>
                 ) : (
                   m.message
+                  
                 )}
                 <span className="chat_buble-username">
                   {user.id !== m.user.id ? m.user.username : ""} {m.time}
