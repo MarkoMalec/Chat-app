@@ -7,7 +7,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const Input = () => {
 
-    const { sendMessage, sendImage } = useContext(ChatContext);
+    const { sendMessage } = useContext(ChatContext);
 
     const [text, setText] = useState('');
 
