@@ -7,7 +7,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const Input = () => {
 
-    const { sendMessage } = useContext(ChatContext);
+    const { sendMessage, sendImage } = useContext(ChatContext);
 
     const [text, setText] = useState('');
 
@@ -29,11 +29,14 @@ const Input = () => {
                 autoFocus={true}
                 value={text}
             />
-            {/* <input type="file" accept="image/*" onChange={onImageChange} /> */}
             <button>
                 <FontAwesomeIcon className='send-icon' icon={faPaperPlane} />
             </button>
         </form>
+        {/* <form onSubmit={e => submitImg(e)}>
+            <input type="file" accept="image/*" onChange={onImageChange} />
+            <button>send</button>
+        </form> */}
     </section>
     )
 }

@@ -23,8 +23,8 @@ const ChatApp = () => {
 
   return (
     <UserContext.Provider value={{ user, drone, userLogin }}>
-      {!user && <Login />}
-      {user && <Chat />}
+      {!user ? <Login /> : null}
+      {user ? <Chat /> : null}
     </UserContext.Provider>
   );
 };

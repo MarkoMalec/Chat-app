@@ -41,6 +41,15 @@ section.messages_area {
             border-radius: 10px;
             padding: .35rem .7rem;
             word-break: break-word;
+
+            a {
+                color: white;
+                font-weight: 400;
+
+                &:visited {
+                    color: white;
+                }
+            }
     
             .chat_buble-username {
                 display: block;

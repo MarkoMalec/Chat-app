@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
+import ReactLinkify from "react-linkify";
 import ChatContext from "../../context/ChatContext";
 import UserContext from "../../context/UserContext";
 import "./Messages.scss";
@@ -35,27 +36,20 @@ const Messages = () => {
           if (m.type === "HISTORY_MESSAGE") {
             return (
               <li key={m.id}>
-                {m.message} 
-                <span className="chat_buble-username">
-                  {m.user.username}
-                </span>
+                <ReactLinkify>{m.message}</ReactLinkify>
+                <span className="chat_buble-username">{m.user.username}</span>
               </li>
-            )
+            );
           }
           return (
             <li
-            key={m.id}
-            className={
-              user.id === m.user.id ? "message_by_me" : "message_by_other"
-            }
+              key={m.id}
+              className={
+                user.id === m.user.id ? "message_by_me" : "message_by_other"
+              }
             >
               <>
-                {m.message.includes("https") ? (
-                  <a href={m.message}>{m.message}</a>
-                ) : (
-                  m.message
-                  
-                )}
+                <ReactLinkify>{m.message}</ReactLinkify>
                 <span className="chat_buble-username">
                   {user.id !== m.user.id ? m.user.username : ""} {m.time}
                 </span>
